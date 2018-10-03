@@ -1,0 +1,26 @@
+name: split_excel
+channels:
+  - anaconda
+  - defaults
+dependencies:
+  - vs2015_runtime=15.5.2=3
+  - msvc_runtime=1.0.1=vc10_0
+  - pip=9.0.1=py34_1
+  - python=3.4.5=0
+  - setuptools=27.2.0=py34_1
+  - vc=10=0
+  - vs2010_runtime=10.00.40219.1=2
+  - wheel=0.29.0=py34_0
+  - pip:
+    - altgraph==0.16.1
+    - et-xmlfile==1.0.1
+    - future==0.16.0
+    - jdcal==1.4
+    - macholib==1.11
+    - openpyxl==2.5.8
+    - pefile==2018.8.8
+    - pyinstaller==3.4
+    - pyreadline==2.1
+    - pywin32-ctypes==0.2.0
+prefix: C:\Users\Andrew\Anaconda3\envs\split_excel
+
