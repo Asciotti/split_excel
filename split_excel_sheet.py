@@ -2,6 +2,7 @@ from openpyxl import load_workbook
 from openpyxl.utils import get_column_letter
 from openpyxl import Workbook
 import argparse
+import os
 
 #Copy range of cells as a nested list
 #Takes: start cell, end cell, and sheet you want to copy from.
@@ -34,7 +35,10 @@ def pasteRange(startCol, startRow, endCol, endRow, sheetReceiving,copiedData):
 
 def split_workbook(file, dir_out, split_size):
     # Load workbook
-    wb = load_workbook('test.xlsx')
+    wb = load_workbook(file)
+
+    # Strip file name for saving purposes
+    out_file = os.path.splitext(os.path.basename(file))[0]
 
     # Get first sheet
     sheet = wb.worksheets[0]
@@ -54,7 +58,7 @@ def split_workbook(file, dir_out, split_size):
     # Create subfiles containing only split_size number of cols of original
     for subfile in range(num_files):
         # Create new workbook name
-        dest_filename = '{}_test.xlsx'.format(subfile)
+        dest_filename = '{}_{}.xlsx'.format(os.path.join(dir_out,out_file), subfile)
         # Create new workbook
         new_file = Workbook()
         new_sheet = new_file.active
