@@ -4,10 +4,29 @@ from openpyxl import Workbook
 import argparse
 import os
 
-#Copy range of cells as a nested list
-#Takes: start cell, end cell, and sheet you want to copy from.
-#src: https://yagisanatode.com/2017/11/18/copy-and-paste-ranges-in-excel-with-openpyxl-and-python-3/
 def copyRange(startCol, startRow, endCol, endRow, sheet):
+    '''
+    Copies a range of cells from an excel workbook's sheet
+
+    Parameters
+    ----------
+    startCol : int
+        col to start copying inside `sheet`
+    startRow : int
+        row to start copying inside `sheet`
+    endCol : int
+        col to stop copying inside `sheet`
+    endRow : int
+        row to stop copying inside `sheet`
+    sheet : derived Workbook object
+        pointer to active sheet in working excel file
+    
+    Returns
+    -------
+    rangeSelected : array_like
+        list of objects extracted from `sheet` cells
+
+    '''
     rangeSelected = []
     #Loops through selected Rows
     for i in range(startRow,endRow + 1):
@@ -20,15 +39,43 @@ def copyRange(startCol, startRow, endCol, endRow, sheet):
  
     return rangeSelected
 
-#Paste range
-#Paste data from copyRange into template sheet
-#src: https://yagisanatode.com/2017/11/18/copy-and-paste-ranges-in-excel-with-openpyxl-and-python-3/
-def pasteRange(startCol, startRow, endCol, endRow, sheetReceiving,copiedData):
+def pasteRange(startCol, startRow, endCol, endRow, sheetReceiving, copiedData):
+    '''
+    Copies a range of cells from an excel workbook's sheet
+
+    Parameters
+    ----------
+    startCol : int
+        col to start copying inside `sheet`
+    startRow : int
+        row to start copying inside `sheet`
+    endCol : int
+        col to stop copying inside `sheet`
+    endRow : int
+        row to stop copying inside `sheet`
+    sheetReceiving : derived Workbook object
+        pointer to sheet in excel workbook copying to
+    copiedData : array_like
+        list of data to be copied to receiving sheet
+
+    '''
     for countRow, i in enumerate(range(startRow,endRow+1)):
         for countCol, j in enumerate(range(startCol,endCol+1)):
             sheetReceiving.cell(row = i, column = j).value = copiedData[countRow][countCol]
 
 def split_workbook(file, dir_out, split_size):
+    '''
+    Main workhorse that has smarts to split workbook
+
+    Parameters
+    ----------
+    file : str
+        xlsx file to read in and split up
+    dir_out : str
+        directory to save split files into
+    split_size : number of rows to split rows of `file` by
+
+    '''
     # Load workbook
     wb = load_workbook(file)
 
