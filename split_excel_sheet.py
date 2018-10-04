@@ -24,15 +24,9 @@ def copyRange(startCol, startRow, endCol, endRow, sheet):
 #Paste data from copyRange into template sheet
 #src: https://yagisanatode.com/2017/11/18/copy-and-paste-ranges-in-excel-with-openpyxl-and-python-3/
 def pasteRange(startCol, startRow, endCol, endRow, sheetReceiving,copiedData):
-    countRow = 0
-    print(copiedData)
-    for i in range(startRow,endRow+1):
-        countCol = 0
-        for j in range(startCol,endCol+1):
-            print(countRow, countCol)
+    for countRow, i in enumerate(range(startRow,endRow+1)):
+        for countCol, j in enumerate(range(startCol,endCol+1)):
             sheetReceiving.cell(row = i, column = j).value = copiedData[countRow][countCol]
-            countCol += 1
-        countRow += 1
 
 def split_workbook(file, dir_out, split_size):
     # Load workbook
@@ -52,7 +46,6 @@ def split_workbook(file, dir_out, split_size):
 
     # Get number of cols each subfile should hold, and remainder, -1 because of header
     (num_files, remainder) = divmod(total_rows-1, split_size)
-    print(num_files, remainder)
     if remainder > 0:
         print('Warning: the last subfile will have {} + {} rows'.format(split_size, remainder))
     
