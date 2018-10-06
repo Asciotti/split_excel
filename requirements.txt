@@ -1,0 +1,10 @@
+altgraph==0.16.1
+et-xmlfile==1.0.1
+future==0.16.0
+jdcal==1.4
+macholib==1.11
+openpyxl==2.5.8
+pefile==2018.8.8
+PyInstaller==3.4
+pyreadline==2.1
+pywin32-ctypes==0.2.0
