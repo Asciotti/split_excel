@@ -14,7 +14,7 @@ Install dependencies
 `pip install -r requirements.txt` 
 
 ### or 
-Install via yml file (conda)
+Install via yml file (conda)  
 `conda env create -f environment.yml -n desired_name`
 
 # Usage
