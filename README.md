@@ -11,7 +11,11 @@ Move into the `split_excel` directory
 `cd ~/split_excel`  
 
 Install dependencies  
-`pip install -r requirements.txt`  
+`pip install -r requirements.txt` 
+
+### or 
+Install via yml file (conda)
+`conda env create -f environment.yml -n desired_name`
 
 # Usage
 After navigating to the `src` directory inside of your `split_excel` directory, one can call the file via command line such as:  
