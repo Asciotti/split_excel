@@ -46,4 +46,4 @@ or
 
 If `output_directory` does not exist, it will be created
 
-`python split_excel.py ../file_to_split.xlsx ../output_dir/ 3` will split the `file_to_split.xlsx` by rows of `3` and output the subfiles into `output_dir`
+`python split_excel.py ../file_to_split.xlsx ../output_dir/ 3` will split the `file_to_split.xlsx` by rows of `3` and output the subfiles into `output_dir`, with any extra rows being outputted to the last subfile.
