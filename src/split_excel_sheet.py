@@ -79,6 +79,7 @@ def split_workbook(file, dir_out, split_size):
 
     # Check `file` exists, if not return
     if not os.path.exists(file):
+        print('Error: {} does not exist'.format(file))
         return
 
     # Check if `dir_out` exists, if not create it
